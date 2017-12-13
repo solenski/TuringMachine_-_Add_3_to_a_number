@@ -1,0 +1,44 @@
+﻿<Window x:Class="TuringNatural3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TuringNatural3"
+        mc:Ignorable="d"
+        DataContext=""
+        Title="MainWindow" Height="164.379" Width="525">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="6*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition Width="9*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Name="STATE_INDICATOR"> STATE :</TextBlock>
+            <TextBlock Grid.Column="1" Name="CURRENT_STRING"> STRING :</TextBlock>
+
+        </Grid>
+        <ItemsControl Grid.Row="1" Name="VisualTape" Margin="10,10,10,28" Grid.ColumnSpan="2">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid HorizontalAlignment="Left"  Rows="1"></UniformGrid>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBox  HorizontalAlignment ="Left" IsEnabled="False" Text="{Binding Value}" Height="23" TextWrapping="NoWrap" Width="23"/>
+                        <CheckBox HorizontalAlignment ="Left" IsEnabled="False" IsChecked="{Binding Current}"></CheckBox>
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <Button Grid.Row="2" Click="Button_Click" >STEP</Button>
+
+    </Grid>
+</Window>
